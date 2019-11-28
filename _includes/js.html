@@ -1,0 +1,23 @@
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script> -->
+<script type="text/javascript" src="{{site.baseurl}}/js/typed.min.js"></script>
+<script type="text/javascript">
+
+var myQuotes =  new Array();
+{% for line in site.lines %}
+  myQuotes.push("{{ line.text }}");
+{% endfor %}
+
+  $(".quotes").typed({
+    strings: myQuotes,
+    typeSpeed: 100,
+    backSpeed: 80,
+    startDelay: 200,
+    backDelay: 500,
+    loop: {{ site.loop }},
+    loopCount: {{ site.loop-count }},
+    cursorChar: "|"
+  });
+
+
+</script>
